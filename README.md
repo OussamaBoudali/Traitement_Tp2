@@ -77,3 +77,42 @@ d’une gamme de musique.
 ```
   sound([seg1;seg4;seg3;seg2],fs);
 ```
+# Synthèse et analyse spectrale d’une gamme de musique
+
+### 1)Créez un programme qui permet de jouer une gamme de musique. La fréquence de chaque note est précisée dans le tableau ci-dessous.
+ ```
+     m_Fs=8192;
+     Ts=1/m_Fs;
+     t=[0:Ts:1];
+     F_A=440; 
+     F_dol=262;
+     F_re=294;
+     F_m=330;
+     F_fa=349;
+     F_sol=392;
+     F_si=494;
+     F_do2=523;
+     A=sin(2*pi*F_A*t);
+     Dol=sin(2*pi*F_dol*t); 
+     re=sin(2*pi*F_re*t);
+     mi=sin(2*pi*F_m*t);
+     fa=sin(2*pi*F_fa*t);
+     so=sin(2*pi*F_sol*t);
+     la=sin(2*pi*F_A*t);
+     si=sin(2*pi*F_si*t);
+     do=sin(2*pi*F_do2*t);
+     doremifasol_solfamiredo= [Dol,re,mi,fa,so,la,si,do,do,si,la,so,fa,mi,re,Dol];
+     faded =[fa,fa,fa,si,mi,mi,re,si,si,si,si,fa,fa,fa,mi];
+     doremifa =[Dol,re,mi,fa,so,la,si,do];
+     inv =[do,si,la,so,fa,mi,re,do];
+ ```
+### 2)- Utilisez l’outil graphique d’analyse de signaux signalAnalyzer pour visualiser le spectre de votre gamme.
+```
+    signalAnalyzer(Gamme);
+    spectrogram(Gamme)
+    a = length(Gamme);
+    fshift = (-a/2:(a/2)-1)*(fe/a);
+    y = fft(Gamme);
+```
+### 3)
+<img width="1196" alt="Screenshot 2023-01-25 at 01 23 00" src="https://user-images.githubusercontent.com/87026851/214452272-6a5e9334-e857-4efa-90a0-2c9a2234ec85.png">
