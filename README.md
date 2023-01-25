@@ -116,3 +116,18 @@ d’une gamme de musique.
 ```
 ### 3)
 <img width="1196" alt="Screenshot 2023-01-25 at 01 23 00" src="https://user-images.githubusercontent.com/87026851/214452272-6a5e9334-e857-4efa-90a0-2c9a2234ec85.png">
+
+```
+    subplot(2,1,1)
+    plot(fshift,fftshift(abs(y)));
+    legend("Represenation du spectre d'une Octave");
+    xlabel("f");
+    ylabel("A");
+    subplot(2,1,2)
+    sig = 20*log(fftshift(abs(y)));
+
+    plot(fshift,sig);
+    legend("Represenation du spectre d'une Octave en dB");
+    xlabel("f");
+    ylabel("A");
+```
